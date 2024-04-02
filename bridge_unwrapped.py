@@ -8,7 +8,7 @@ from typing import Tuple
 import numpy as np
 import rasterio as rio
 from dolphin._log import get_log
-from src.conncomp_emre import connectComponent
+from src.conncomp import connectComponent
 
 logger = get_log(__name__)
 
