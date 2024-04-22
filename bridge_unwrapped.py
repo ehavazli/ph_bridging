@@ -7,10 +7,11 @@ from typing import Tuple
 
 import numpy as np
 import rasterio as rio
-from dolphin._log import get_log
 from src.conncomp import connectComponent
 
-logger = get_log(__name__)
+from dolphin._log import get_log
+
+logger = get_log("bridge_unwrapped")
 
 
 EXAMPLE = """Example usage:
@@ -75,6 +76,15 @@ def get_unw_conncomp(
 
 
 def write_file(unw_arr, amp_arr, profile, new_filename):
+    """
+    Write output files.
+
+    Args:
+        unw_arr : np.array type unwrapped interferogram.
+        amp_arr : np.array type amplitude.
+        profile : rasterio profile for the new file.
+        new_filename: output filename.
+    """
     if np.isnan(amp_arr):
         del amp_arr
 
